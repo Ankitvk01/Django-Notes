@@ -15,3 +15,11 @@ https://docs.djangoproject.com/en/5.1/ref/
 (ii) first run (python manage.py makemigrations) to
 (iii) CharField (and its subclasses) require a max_length argument which specifies the size of the VARCHAR database field used to store the data.
 (iv) Note that this is different than null. null is purely database-related, whereas blank is validation-related. If a field has blank=True, form validation will allow entry of an empty value. If a field has blank=False, the field will be required
+(v) Note:
+	A new migration is created each time the order of choices changes.(field for table having choices to select)
+(vi) Commands to create records:
+	>>> fruit = Fruit.objects.create(name="Apple")
+	>>> fruit.name = "Pear"
+	>>> p = Person(name="Fred Flintstone", shirt_size="L")
+	>>> Fruit.objects.values_list("name", flat=True)
+	<QuerySet ['Apple', 'Pear']>
